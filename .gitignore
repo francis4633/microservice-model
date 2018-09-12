@@ -10,3 +10,5 @@
 .sts4-cache
 */pom.xml.bak
 .gitignore.bak
+*/mvnw
+*/mvnw.cmd
