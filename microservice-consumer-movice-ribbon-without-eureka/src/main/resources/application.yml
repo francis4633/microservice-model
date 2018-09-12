@@ -1,0 +1,40 @@
+server:
+  port: 7904
+spring:
+  application:
+    name: microservice-consumer-movice-ribbon-without-eureka  #建议全部使用小写
+user: 
+  userServicePath: http://localhost:7900/simple/
+    
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${server.port}:${random.value}
+    prefer-ip-address: true    #光标落在instance-id上在左下角显示ip
+#  instance:
+#    appname: ${spring.application.name}   #服务名，默认取spring。application.name的配置值，如果没有默认为unknown
+  healthcheck: 
+    enabled: true  #健康检查
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://${security.user.name}:${security.user.password}@localhost:8761/eureka/
+#      defaultZone: http://localhost:8761/eureka/
+#      defaultZone: http://user:password123@localhost:8761/eureka/
+ribbon:
+  eureka:
+   enabled: false
+microservice-provider-user: #在不使用eureka或者eureka不在根目录下时，请求microservice-provider-user微服务时请请求7900
+  ribbon:
+    listOfServers: localhost:7900  
+      
+security:
+  user:                 
+    name: user         #安全访问用户名
+    password: password123      #安全访问密码
+  basic:
+    enabled: true      #默认为true,用户名：user;密码：启动项目时在控制台会打印出来，例如：Using default security password: c60ad8ae-6401-4aa5-af3e-5b3400d86546,启动安全访问，需要通过用户名密码访问 
+
+management:
+  security:
+    enabled: false    #如果management.security.enabled的值是false的话，除开health接口还依赖endpoints.health.sensitive的配置外，其他接口都不需要输入用户名和密码了

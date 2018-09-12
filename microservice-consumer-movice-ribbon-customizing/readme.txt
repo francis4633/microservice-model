@@ -1,0 +1,1 @@
+1、通过自定义属性（在yml中定义）来指定负载均衡策略，替换microservice-consumer-movice-ribbon中的手动方法
