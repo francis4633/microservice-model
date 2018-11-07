@@ -10,6 +10,9 @@ eureka:
     service-url:
 #      defaultZone: http://localhost:8761/eureka/
       defaultZone: http://${security.user.name}:${security.user.password}@localhost:8761/eureka/
+#  dashboard:
+#    enabled: true
+#    path: /x      #eureka做集群是使用，在生成环境指显示暴露一个eureka的访问路径，避免别人识别，加上一定的访问的后缀，比如/x
 security:
   basic:
     enabled: true   #需要输入用户名密码才能访问，同时需要添加springboot的security依赖
@@ -19,3 +22,4 @@ security:
 #spring:
 #  freemarker:
 #    prefer-file-system-access: false
+
