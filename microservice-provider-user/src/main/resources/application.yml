@@ -18,6 +18,7 @@ eureka:
   instance:
     instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}:${random.value}} #此实例注册到eureka服务端的唯一实例Id,其组成为${spring.application.name}:${spring.application.instance_id:${random.value}}
     prefer-ip-address: true
+    appname: microservice-provider-user-appname  #eureka中的application优先使用appname,如果没有设置appname，则使用application.name
   client:
     register-with-eureka: true
     fetch-registry: true
