@@ -4,12 +4,17 @@ server:
 #  application:
 #    name: eurekaServer
 eureka:
+  server:
+    #Eureka的自我保护不会剔除应下线了的应用，但STS工具会，因为STS他会调用spring boot shutdown hook（停止的钩子），会想eurakaserver申请剔除下线了的应用
+    enable-self-preservation: false 
+    #eviction-interval-timer-in-ms: 30   清楚间隔（单位毫秒，默认是60*1000） 
   client:
     register-with-eureka: false
     fetch-registry: false
     service-url:
 #      defaultZone: http://localhost:8761/eureka/
       defaultZone: http://${security.user.name}:${security.user.password}@localhost:8761/eureka/
+
 #  dashboard:
 #    enabled: true
 #    path: /x      #eureka做集群是使用，在生成环境指显示暴露一个eureka的访问路径，避免别人识别，加上一定的访问的后缀，比如/x
