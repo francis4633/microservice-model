@@ -24,6 +24,9 @@
 		<module>microservice-consumer-movice-ribbon-without-eureka</module>
 		<module>microservice-consumer-movice-feign</module>
 		<module>microservice-consumer-movice-feign-customizing</module>
+		<module>microservice-consumer-movice-feign-with-hystrix</module>
+		
+		
 	</modules>
 
 	<parent>

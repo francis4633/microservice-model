@@ -28,3 +28,8 @@ security:
 #  freemarker:
 #    prefer-file-system-access: false
 
+
+#1、监控   总共请求多少次，有多少次失败，假设失败10%断路器打开
+#2、断路器的状态
+#3、风流
+#4、自我修复（断路器状态的修复）

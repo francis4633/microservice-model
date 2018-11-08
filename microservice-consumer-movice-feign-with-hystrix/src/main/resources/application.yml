@@ -2,7 +2,7 @@ server:
   port: 7901
 spring:
   application:
-    name: microservice-consumer-movice  #建议全部使用小写
+    name: microservice-consumer-movice-feign-with-hystrix  #建议全部使用小写
 eureka:
   instance:
     instance-id: ${spring.application.name}:${server.port}
@@ -29,12 +29,12 @@ security:
 management:
   security:
     enabled: false    #如果management.security.enabled的值是false的话，除开health接口还依赖endpoints.health.sensitive的配置外，其他接口都不需要输入用户名和密码了
+
 feign: 
   hystrix: 
-    enable: false
+    enabled: true #开启feign对hystrix的支持，默认是false
   httpclient: 
    enabled: true
    #@FeignClient所在的接口，不支持@GetMapping等组合注解
    #使用RestTemplate时，想要获取一个list，应用用数组，而不应该直接用list
 
-   
