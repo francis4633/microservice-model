@@ -26,6 +26,8 @@
 		<module>microservice-consumer-movice-feign-customizing</module>
 		<module>microservice-consumer-movice-feign-with-hystrix</module>
 		<module>microservice-consumer-movice-feign-customizing-without-hytrix</module>
+		<module>microservice-consumer-movice-feign-with-hystrix-fallbackFactory</module>
+		
 	</modules>
 
 	<parent>
