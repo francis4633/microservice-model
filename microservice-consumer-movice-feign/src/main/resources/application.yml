@@ -18,6 +18,11 @@ eureka:
       defaultZone: http://${security.user.name}:${security.user.password}@localhost:8761/eureka/
 #      defaultZone: http://localhost:8761/eureka/
 #      defaultZone: http://user:password123@localhost:8761/eureka/
+
+#hystrix默认是1000毫秒，即1s请求不到就超时（亦解决了第一次请求超时的问题）
+#hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 5000
+#也可以直接禁止请求超时
+#hystrix.command.default.execution.timeout.enabled: true #执行是否启用超时，默认启用true
       
 security:
   user:                 
