@@ -10,10 +10,8 @@ import org.springframework.cloud.netflix.feign.EnableFeignClients;
 import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 
 @SpringBootApplication
-//@SpringCloudApplication
 @EnableEurekaClient
 @EnableFeignClients
-//@EnableHystrix
 public class MoviceFeignApplication {
 
 	public static void main(String[] args) {

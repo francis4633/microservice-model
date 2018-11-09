@@ -2,7 +2,7 @@ server:
   port: 7901
 spring:
   application:
-    name: microservice-consumer-movice-feign-with-hystrix  #建议全部使用小写
+    name: microservice-consumer-movice-feign-with-hystrix-fallbackFactory  #建议全部使用小写
 eureka:
   instance:
     instance-id: ${spring.application.name}:${server.port}
@@ -40,5 +40,5 @@ feign:
 #hystrix默认是1000毫秒，即1s请求不到就超时（亦解决了第一次请求超时的问题）
 #hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 5000
 #也可以直接禁止请求超时
-hystrix.command.default.execution.timeout.enabled: true #执行是否启用超时，默认启用true
+hystrix.command.default.execution.timeout.enabled: false #执行是否启用超时，默认启用true
 

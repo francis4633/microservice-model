@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.yunjipin.config.feign.FeignConfig;
 import com.yunjipin.test.entity.User;
 
-@FeignClient(name = "microservice-provider-user",configuration = FeignConfig.class,fallback = HystrixClientFallback.class)
+@FeignClient(name = "microservice-provider-user",configuration = FeignConfig.class,/*fallback = HystrixClientFallback.class,*/fallbackFactory = HystrixClientFallbackFactory.class)
 public interface UserFeignClient {
 
 	  @RequestMapping(value = "/simple/{id}",method = RequestMethod.GET)
