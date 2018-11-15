@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: microservice-consumer-movie-ribbon-with-hystrix
+server:
+  port: 8010
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://${security.user.name}:${security.user.password}@localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 5000
+user: 
+  userServicePath: http://localhost:7900/simple/
+
+security:
+  user:                 
+    name: user         #安全访问用户名
+    password: password123      #安全访问密码
+  basic:
+    enabled: true      #默认为true,用户名：user;密码：启动项目时在控制台会打印出来，例如：Using default security password: c60ad8ae-6401-4aa5-af3e-5b3400d86546,启动安全访问，需要通过用户名密码访问 
+management:
+  endpoint:
+    shutdown:
+      enabled: true
+    health:
+      show-details: always
+endpoints:
+  web:
+    exposure:
+      include: '*'
+  actuator:
+    enabled: true
+
+    

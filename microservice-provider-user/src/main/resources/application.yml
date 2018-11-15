@@ -19,12 +19,15 @@ eureka:
     instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}:${random.value}} #此实例注册到eureka服务端的唯一实例Id,其组成为${spring.application.name}:${spring.application.instance_id:${random.value}}
     prefer-ip-address: true
 #    appname: microservice-provider-user-appname  #eureka中的application优先使用appname,如果没有设置appname，则使用application.name
+  
   client:
     register-with-eureka: true
     fetch-registry: true
     service-url:
       defaultZone: http://${security.user.name}:${security.user.password}@localhost:8761/eureka/
 #      defaultZone: http://localhost:8761/eureka/
+    healthcheck:
+      enabled: true
 
 
 security:
@@ -39,8 +42,10 @@ management:
   security: 
     enabled: false       #如果management.security.enabled的值是false的话，除开health接口还依赖endpoints.health.sensitive的配置外，其他接口都不需要输入用户名和密码了
 
-#Hystrix默认超时时间是1s    
+#Hystrix默认超时时间是1s 
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 5000
 
+   
 #logging:
 #  level:
 #    root：INFO

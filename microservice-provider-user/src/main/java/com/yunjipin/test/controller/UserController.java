@@ -35,7 +35,7 @@ public class UserController {
   }
 
   @GetMapping("/simple/{id}")
-  @HystrixCommand(fallbackMethod = "fallFindById")//fallFindById方法的返回参数类型以及接收参数的类型必须保持一致
+//  @HystrixCommand(fallbackMethod = "fallFindById")//fallFindById方法的返回参数类型以及接收参数的类型必须保持一致
   public User findById(@PathVariable Long id) {
 		User user = this.userRepository.findOne(id);
 //		String testStr = null;
